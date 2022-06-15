@@ -24,7 +24,7 @@ TL_BACKEND=tensorflow python reddit_sage.py --lr 0.0005 --hidden_dim 256 --drop_
 ```
 ```bash
 TL_BACKEND=paddle python train_full.py --dataset cora --n_epoch 500 --lr 0.005 --hidden_dim 512 --drop_rate 0.7 --n_epoch 500
-CUDA_VISIBLE_DEVICES=5 TL_BACKEND=paddle python reddit_sage.py --lr 0.001 --hidden_dim 128 --drop_rate 0.8
+TL_BACKEND=paddle python reddit_sage.py --lr 0.001 --hidden_dim 128 --drop_rate 0.8
 ```
 ```bash
 # use pytorch
