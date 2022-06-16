@@ -31,8 +31,8 @@ This example was implemented by Ziyu Zheng
 --pred_hid 				int		MLP hidden dimension			   	   Default is 4096.
 --drop_edge_rate_1      float   Drop edge ratio 1.                     Default is 0.2. 
 --drop_edge_rate_2      float   Drop edge ratio 2.                     Default is 0.2. 
---drop_feature_rate_1   float   Drop feature ratio 1.                  Default is 0.5. 
---drop_feature_rate_2   float   Drop feature ratio 2.                  Default is 0.5. 
+--drop_feat_rate_1   float   Drop feature ratio 1.                  Default is 0.5. 
+--drop_feat_rate_2   float   Drop feature ratio 2.                  Default is 0.5. 
 --dataset_path          str     path to save dataset.                  Default is r'../'
 ```
 
@@ -41,11 +41,18 @@ This example was implemented by Ziyu Zheng
 In the paper(as well as authors' repo), the training set are full graph training
 
 ```python
+# use paddle backend
 # Cora by GammaGL
-CUDA_VISIBLE_DEVICES="1" TL_BACKEND="paddle" python merit_trainer.py --dataset cora --epochs 500 --drop_edge_rate_1 0.2 --drop_edge_rate_2 0.2 --drop_feature_rate_1 0.5 --drop_feature_rate_2 0.5 --lr 3e-4 --beta 0.5
-
+TL_BACKEND=paddle python merit_trainer.py --dataset cora --epochs 500 --drop_edge_rate_1 0.2 --drop_edge_rate_2 0.2 --drop_feat_rate_1 0.5 --drop_feat_rate_2 0.5 --lr 3e-4 --beta 0.5
 #Citeseer by GammaGL
-CUDA_VISIBLE_DEVICES="1" TL_BACKEND="paddle" python merit_trainer.py --dataset cora --epochs 500 --drop_edge_rate_1 0.4 --drop_edge_rate_2 0.4 --drop_feature_rate_1 0.5 --drop_feature_rate_2 0.5 --lr 3e-4 --beta 0.6
+TL_BACKEND=paddle python merit_trainer.py --dataset cora --epochs 500 --drop_edge_rate_1 0.4 --drop_edge_rate_2 0.4 --drop_feat_rate_1 0.5 --drop_feat_rate_2 0.5 --lr 3e-4 --beta 0.6
+
+# use tensorflow backend
+# Cora by GammaGL
+TL_BACKEND=tensorflow python merit_trainer.py --dataset cora --epochs 500 --drop_edge_rate_1 0.2 --drop_edge_rate_2 0.2 --drop_feat_rate_1 0.5 --drop_feat_rate_2 0.5 --lr 3e-4 --beta 0.5
+#Citeseer by GammaGL
+TL_BACKEND=tensorflow python merit_trainer.py --dataset cora --epochs 500 --drop_edge_rate_1 0.4 --drop_edge_rate_2 0.4 --drop_feat_rate_1 0.5 --drop_feat_rate_2 0.5 --lr 3e-4 --beta 0.6
+
 
 ```
 
@@ -56,6 +63,7 @@ CUDA_VISIBLE_DEVICES="1" TL_BACKEND="paddle" python merit_trainer.py --dataset c
 | :-------------: | :--: | :------: | :----: |
 |  Author's Code  | 83.1 |   74.0   |  80.2  |
 |   GammaGL(tf)   | 84.3 |   72.2   |  --.-  |
-| GammaGL(paddle) | 83.1 |   --.-   |  --.-  |
+|   GammaGL(pd)   | 83.1 |   --.-   |  --.-  |
+|   GammaGL(th)   | 83.1 |   --.-   |  --.-  |
 
  
